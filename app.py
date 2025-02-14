@@ -1,11 +1,4 @@
-import os
-
-# Ensure required libraries are installed
-os.system("pip install streamlit-image-select==0.6.0")
-os.system("pip install pillow==9.5.0")
-os.system("pip install zlib")
 import streamlit as st
-from streamlit_image_select import image_select
 import datetime
 import time
 
@@ -25,7 +18,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Section 2: Photo Album with Interactive Slideshow
+# Section 2: Photo Album with Interactive Dropdown
 st.header(" **Our Moments Together**")
 photos = {
     "Photo 1": "photos/photo1.jpg",  # Replace these paths with actual image paths
@@ -35,32 +28,33 @@ photos = {
     "Photo 5": "photos/photo5.jpg"
 }
 
-selected_photo = image_select(
-    label="Scroll through our favorite memories ",
-    images=list(photos.values()),
-    captions=list(photos.keys()),
-    use_container_width=True
+# Dropdown for selecting a photo
+selected_photo_caption = st.selectbox(
+    "Scroll through our favorite memories",
+    list(photos.keys())
 )
 
-st.image(selected_photo, use_column_width=True)
+selected_photo = photos[selected_photo_caption]
+st.image(selected_photo, caption=selected_photo_caption, use_column_width=True)
 
-if st.button("Start Slideshow "):
+# Button to start slideshow
+if st.button("Start Slideshow"):
     st.write("Enjoy the slideshow! ")
-    for photo in photos.values():
-        st.image(photo, use_column_width=True)
+    for caption, photo in photos.items():
+        st.image(photo, caption=caption, use_column_width=True)
         time.sleep(2)
 
 # Section 3: Voice Note
 st.header(" **A Message from Me to You**")
-st.markdown("Click below to hear my special Valentine’s Day message for you :")
+st.markdown("Click below to hear my special Valentine’s Day message for you:")
 st.audio("voice_note.mp3")  # Replace with the actual file path to your voice note
 
 # Section 4: Thank You Note
 st.header(" **Thank You for the Flowers**")
 st.markdown("""
 <div class='card'>
-    <p>I keep the flowers by my desk all day.  Let’s not forget about the hair tie hehehe! </p>
-    <p>You have the most thoughtful and kind heart, and I’m so lucky to yap with you every single day! </p>
+    <p>I keep the flowers by my desk all day.  Let’s not forget about the hair tie hehehe!</p>
+    <p>You have the most thoughtful and kind heart, and I’m so lucky to yap with you every single day!</p>
 </div>
 """, unsafe_allow_html=True)
 
