@@ -1,6 +1,8 @@
 import streamlit as st
 import datetime
 import time
+import PIL
+
 
 # Page configuration
 st.set_page_config(page_title="Yap Queen", page_icon="🗣️", layout="centered")
@@ -64,4 +66,4 @@ st.markdown("<div class='footer'>Made with love, you know who heheheh</div>", un
 
 st.write("We need to watch The Departed Movie and get Whiskey n beer.")
 
-st.text("© 2025 Yap Queen Certified. All rights reserved.")
+st.text("© 2025 Yap Queen Certified. All rights reserved. ")
