@@ -2,7 +2,8 @@ import os
 
 # Ensure required libraries are installed
 os.system("pip install streamlit-image-select==0.6.0")
-
+os.system("pip install pillow==9.5.0")
+os.system("pip install zlib")
 import streamlit as st
 from streamlit_image_select import image_select
 import datetime
@@ -11,10 +12,8 @@ import time
 # Page configuration
 st.set_page_config(page_title="Yap Queen", page_icon="🗣️", layout="centered")
 
-
-
 # Header with animation
-st.markdown("Hi Sam, Happy Valentine's Day! ", unsafe_allow_html=True)
+st.title("Hi Sam, Happy Valentine's Day! ", unsafe_allow_html=True)
 st.title("To My Yap Queen ")
 
 # Section 1: The Place Where It All Started
