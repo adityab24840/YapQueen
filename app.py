@@ -13,7 +13,7 @@ import time
 st.set_page_config(page_title="Yap Queen", page_icon="🗣️", layout="centered")
 
 # Header with animation
-st.title("Hi Sam, Happy Valentine's Day! ", unsafe_allow_html=True)
+st.title("Hi Sam, Happy Valentine's Day! ")
 st.title("To My Yap Queen ")
 
 # Section 1: The Place Where It All Started
