@@ -1,3 +1,8 @@
+import os
+
+# Ensure required libraries are installed
+os.system("pip install streamlit-image-select==0.6.0")
+
 import streamlit as st
 from streamlit_image_select import image_select
 import datetime
